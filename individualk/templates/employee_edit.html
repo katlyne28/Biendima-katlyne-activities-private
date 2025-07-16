@@ -1,0 +1,21 @@
+{% extends 'layout_main.html' %}
+
+{% block title %}Edit Employee{% endblock %}
+
+{% block content %}
+<div class="fem-card">
+  <h2 class="mb-3">Edit Employee #{{ employee[0] }}</h2>
+  <form method="POST">
+    <div class="mb-3">
+      <input type="text" name="name" class="form-control fem-input" value="{{ employee[1] }}" required />
+    </div>
+    <div class="mb-3">
+      <input type="text" name="position" class="form-control fem-input" value="{{ employee[2] }}" required />
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-fem">Update</button>
+      <a href="/employee_list_fem" class="btn btn-fem-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

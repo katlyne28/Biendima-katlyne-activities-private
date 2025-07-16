@@ -1,0 +1,63 @@
+body.fem-background {
+    background: linear-gradient(to right, #ffe6f7, #f9d5ec);
+    min-height: 100vh;
+}
+
+.fem-navbar {
+    background: linear-gradient(90deg, #ffb3d9, #ff66a3);
+}
+
+.fem-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 102, 163, 0.3);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.fem-card h2 {
+    color: #ff66a3;
+    font-weight: bold;
+}
+
+.fem-input {
+    border: 1px solid #ff66a3;
+    border-radius: 5px;
+}
+
+.btn-fem {
+    background: linear-gradient(90deg, #ff66a3, #ffb3d9);
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-fem:hover {
+    background: linear-gradient(90deg, #ff4d94, #ff99c2);
+}
+
+.btn-fem-outline {
+    border: 1px solid #ff66a3;
+    color: #ff66a3;
+}
+
+.btn-fem-outline:hover {
+    background: #ff66a3;
+    color: #fff;
+}
+
+.fem-table {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fem-table thead {
+    background: linear-gradient(90deg, #ffb3d9, #ff66a3);
+    color: #fff;
+}
+
+.fem-table tbody tr td {
+    vertical-align: middle;
+}

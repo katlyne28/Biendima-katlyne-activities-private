@@ -1,0 +1,45 @@
+{% extends 'layout_main.html' %}
+
+{% block title %}Employees{% endblock %}
+
+{% block content %}
+<div class="fem-card">
+  <h2 class="mb-4">Manage Your Team 💼</h2>
+
+  <form method="POST" action="/add_employee_fem" class="row g-3">
+    <div class="col-md-5">
+      <input type="text" name="name" class="form-control fem-input" placeholder="Name" required/>
+    </div>
+    <div class="col-md-5">
+      <input type="text" name="position" class="form-control fem-input" placeholder="Position" required/>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-fem w-100">Add</button>
+    </div>
+  </form>
+
+  <table class="table fem-table mt-4">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for emp in employees %}
+      <tr>
+        <td>{{ emp[0] }}</td>
+        <td>{{ emp[1] }}</td>
+        <td>{{ emp[2] }}</td>
+        <td>
+          <a href="/edit_employee_fem/{{ emp[0] }}" class="btn btn-fem-outline btn-sm me-2">Edit</a>
+          <a href="/delete_employee_fem/{{ emp[0] }}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
