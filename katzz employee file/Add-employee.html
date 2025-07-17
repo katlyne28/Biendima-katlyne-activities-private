@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Directory</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 2em;
+      color: #2e7d32;
+      margin-bottom: 30px;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .form-row input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .form-row button {
+      grid-column: span 4;
+      padding: 10px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .form-row button:hover {
+      background-color: #2e7d32;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    thead {
+      background-color: #e0f2f1;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      font-weight: 600;
+      color: #00695c;
+    }
+
+    tr:hover {
+      background-color: #f1f8e9;
+    }
+
+    .delete-btn {
+      background-color: #d32f2f;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .delete-btn:hover {
+      background-color: #b71c1c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="main-title">Add employee</h1>
+
+  <div class="form-container">
+    <div class="form-row">
+      <input type="text" id="empId" placeholder="Employee ID">
+      <input type="text" id="lastName" placeholder="Last Name">
+      <input type="text" id="position" placeholder="Position">
+      <input type="text" id="office" placeholder="Office">
+      <button onclick="addEmployee()">Add Employee</button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Last Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="employeeTable">
+      <!-- Dynamic content goes here -->
+    </tbody>
+  </table>
+
+  <script>
+    function addEmployee() {
+      const empId = document.getElementById("empId").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const position = document.getElementById("position").value.trim();
+      const office = document.getElementById("office").value.trim();
+
+      if (!empId || !lastName || !position || !office) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const tableBody = document.getElementById("employeeTable");
+      const newRow = document.createElement("tr");
+
+      newRow.innerHTML = `
+        <td>${empId}</td>
+        <td>${lastName}</td>
+        <td>${position}</td>
+        <td>${office}</td>
+        <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+      `;
+
+      tableBody.appendChild(newRow);
+
+      document.getElementById("empId").value = "";
+      document.getElementById("lastName").value = "";
+      document.getElementById("position").value = "";
+      document.getElementById("office").value = "";
+    }
+
+    function deleteRow(button) {
+      const row = button.closest("tr");
+      row.remove();
+    }
+  </script>
+
+</body>
+</html>
